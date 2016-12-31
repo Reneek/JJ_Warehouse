@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^load_trans/$',views.get_trans),
     url(r'login/$',views.login_1),
     url(r'register/$',views.register),
+    url(r'^logout/$',views.out),
 
 
 ]

@@ -5,7 +5,8 @@ from django.http import HttpResponse
 from datetime import date
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+
 
 def login_1(request):
 
@@ -58,7 +59,7 @@ def available_location(request):
     year = string[6] + string[7] + string[8] + string[9]
     start_date = date(int(year), int(month),int(day))
 
-    # spaces free after starting date with . returns  dictionary  ({'sname': pk,'level': 2, 'pk':1}...etc)
+    # spaces with earlier ending dates, and usable.. returns  dictionary  ({'sname': pk,'level': 2, 'pk':1}...etc)
     spaces = Shelf.objects.all().filter(end__lt=start_date).filter(status=0).order_by('sname').values('sname','level','pk','status')
 
     w_list = []
@@ -207,23 +208,22 @@ def print_r(request):
     key = request.GET['number']
     try:
         trans = Transaction.objects.get(pk = key)
-        detail = {"name":trans.tcustomer.first_name,"sdate":trans.tstart,"edate":trans.tend,"warehouse": trans.tshelf.sname.aname.name,"cost":trans.tcost}
+        detail = {"name":trans.tcustomer.first_name,"sdate":trans.tstart,"edate":trans.tend,"warehouse": trans.tshelf.sname.aname.name,"cost":trans.tcost,"status":trans.tstatus}
         return JsonResponse(detail, safe = False)
     except:
         return JsonResponse({"code":0})
 
 def release(request):
-    try:
-        default = date(1999,10,30)
-        num = request.GET['key']
-        trans = Transaction.objects.get(pk=num)
-        trans.tstatus = 0
-        trans.tshelf.start = default
-        trans.tshelf.end = default
-        trans.save()
-        return JsonResponse({"code":0})
-    except:
-        return JsonResponse({"code":-1})
+    default = date(1999,10,30)
+    num = request.GET['key']
+    trans = Transaction.objects.get(pk=num)
+    trans.tstatus = 0
+    trans.tshelf.start = default
+    trans.tshelf.end = default
+    trans.save()
+    return JsonResponse({"code":0})
+    #except:
+        #return JsonResponse({"code":-1})
 
 def get_trans(request):
     start = request.GET['d_start']
@@ -260,3 +260,5 @@ def get_trans(request):
         return JsonResponse({'code':0})
 
 
+def out(request):
+    logout(request)

@@ -1,8 +1,11 @@
 $(function() {
      
+     var stat;
 
+     
     $("#show").click(function() { // if submit button is clicked
-        var num = $("#tnum").val();    //数据类型text  25/
+        var num = $("#tnum").val(); 
+
             $.ajax({ // JQuery ajax function
                 type: "GET", // Submitting Method
                 url: 'http://127.0.0.1:8000/get_r/',  //这里是你的api名字
@@ -15,12 +18,30 @@ $(function() {
 
                     }
                     else {
+                        var status = data["status"]
+                        stat = status
+                        var sta
+
+                        switch (status){
+                                case 0:
+                                    sta = "paid & retrieved";
+                                    break;
+                                case 1:
+                                    sta = "ongoing";
+                                    break;
+
+                                default:
+                                    sta = "error"                                             
+                                                    
+                            }
                         $(".details").remove();
                         $("#rtable").append("<td class = 'details'>" + data["name"] + "</td>");
                         $("#rtable").append("<td class = 'details'>" + data["sdate"] + "</td>"); //开始时间
                         $("#rtable").append("<td class = 'details'>" + data["edate"] + "</td>");//结束时间
                         $("#rtable").append("<td class = 'details'>" + data["warehouse"] + "</td>")
                         $("#rtable").append("<td class = 'details'>" + num + "</td>")
+                        $("#rtable").append("<td class = 'details'>" + sta + "</td>")
+
                     }
                     var cost = data["cost"];
                     $("#cost").text(cost)
@@ -34,16 +55,22 @@ $(function() {
 
     $("#retrieve").click(function(){
         var num = $("#tnum").val();
-        
+
+        if (stat == 0){
+            alert("Item has already been retrieved");
+            
+        }
+        else {        
         $.ajax({ // JQuery ajax function
                 type: "GET", // Submitting Method
                 url: 'http://127.0.0.1:8000/release/',  //这里是你的api名字
-                data: {"number":num}, // the data that will be sent to php processor
+                data: {"key":num}, // the data that will be sent to php processor
                 dataType: "json",
-                succeed: function(data){
-
+                success: function(data){
+                        
                     if(data["code"]==0){
-                        window.location("./dash.html")
+                        alert("success!")
+                        window.location=("./dash.html")
                     }
                     else{
                         alert("error")
@@ -52,6 +79,8 @@ $(function() {
                     
                 }
             });
+
+        }
             return false;
     });
 

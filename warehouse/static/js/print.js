@@ -15,12 +15,28 @@ $(function() {
 
                     }
                     else {
+                        var status = data["status"]
+                        var sta
+
+                        switch (status){
+                                case 0:
+                                    sta = "paid";
+                                    break;
+                                case 1:
+                                    sta = "ongoing";
+                                    break;
+
+                                default:
+                                    sta = "error"                                             
+                                                    
+                            }
                         $(".details").remove();
                         $("#rtable").append("<td class = 'details'>" + data["name"] + "</td>");
                         $("#rtable").append("<td class = 'details'>" + data["sdate"] + "</td>"); //开始时间
                         $("#rtable").append("<td class = 'details'>" + data["edate"] + "</td>");//结束时间
                         $("#rtable").append("<td class = 'details'>" + data["warehouse"] + "</td>")
                         $("#rtable").append("<td class = 'details'>" + num + "</td>")
+                        $("#rtable").append("<td class = 'details'>" + sta + "</td>")
                         $("#cost").text(data["cost"])
                     }
                 }
