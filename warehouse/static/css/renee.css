@@ -1,0 +1,349 @@
+body{
+	background-color: #fff;
+
+}
+
+h1{
+	font-size:  50px;
+}
+.class3{
+	background-color: #f45;
+}
+
+.main{
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	padding-top: 70px;
+}
+.center{
+	margin:auto;
+}
+.main_left{
+	margin:auto;
+	text-align: center;
+
+}
+.main_right{
+	margin:auto;
+}
+
+
+.navbar navbar-default{
+
+}
+.uploadphoto{
+	margin : 20px;
+	text-align: center;
+}
+
+.avt_back{
+	height:150px;
+	background-size: cover;
+	padding: 10px 15px;
+	border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    border-bottom: 1px solid transparent;
+}
+
+.profile_pic{
+	width: 100px;
+	height: 100px;
+	margin-top: -70px;
+	margin-bottom: 5px;
+	border: 3px solid #fff;
+	border-radius: 100%;
+	box-shadow: 0 1px 1px rgba(247, 6, 6, 0.1);
+	vertical-align: middle;
+	background-size: cover;
+}
+
+.user_name{
+	background-color: transparent;
+	font-size: 16px;
+	text-align: center;
+}
+
+.des{
+	margin-bottom: 30px;
+
+}
+
+
+.bg {
+  background: url('../img/love2.jpg') no-repeat center center;
+
+  position: fixed;
+  width: 100%;
+  height: 1000px; /*same height as jumbotron */
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+
+
+.j1 { 
+  height: 1000px;
+  color: white;
+  text-shadow: #444 0 1px 1px;
+  background:transparent;
+}
+
+.jumboh1{
+	padding-top: 400px;
+	font-size: 50px;
+}
+
+
+.match-avt{
+	width: 100px;
+	height: 100px;
+	background-size: cover;
+
+}
+
+.match-info{
+	width: 50%;
+	background-color: blue;
+	height: 100px;
+	margin: auto;
+
+}
+
+
+#hc{
+	display:none;
+}
+
+#hover-parent:hover #hc {
+    display: block;
+}
+.bar{
+	margin: 10px;
+}
+
+.item{
+	margin: 10px;
+}
+
+
+.lee{
+	margin-bottom: 10px;
+}
+
+
+
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+@media (min-width: 1px) { 
+	.bg {
+	  background: url('../img/love8.jpg') no-repeat center center;
+
+	  position: fixed;
+	  width: 100%;
+	  height: 600px; /*same height as jumbotron */
+	  top:0;
+	  left:0;
+	  z-index: -1;
+	}
+	.j1 { 
+	  height: 600px;
+	  color: black;
+	  text-shadow: #444 0 1px 1px;
+	  background:transparent;
+	}
+
+	.jumboh1{
+		padding-top: 100px;
+		font-size: 30px;
+	}
+	.titleh1{
+		font-size: 30px;
+	}
+
+
+
+
+}
+
+
+@media (min-width: 426px) { 
+	.main_left{
+		width:50%;
+	}
+	.main_right{
+		width:50%;
+	}
+	.bg {
+	  background: url('../img/love5.jpg') no-repeat center center;
+
+	  position: fixed;
+	  width: 100%;
+	  height: 700px; /*same height as jumbotron */
+	  top:0;
+	  left:0;
+	  z-index: -1;
+	}
+
+
+
+	.j1 { 
+	  height: 700px;
+	  color: white;
+	  text-shadow: #444 0 1px 1px;
+	  background:transparent;
+	  width: 50%;
+	  margin-left: 0%;
+	}
+
+	.jumboh1{
+		padding-top: 200px;
+		font-size: 50px;
+	}
+
+	.titleh1{
+		font-size: 40px;
+	}
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+@media (min-width: 769px) { 
+	.main_left{
+		width:30%;
+	}
+	.main_right{
+		width:70%;
+	}
+
+	.bg {
+	  background: url('../img/love10.jpg') no-repeat center center;
+
+	  position: fixed;
+	  width: 100%;
+	  height: 1000px; /*same height as jumbotron */
+	  top:0;
+	  left:0;
+	  z-index: -1;
+	}
+
+
+
+	.j1 { 
+	  height: 1000px;
+	  color: white;
+	  text-shadow: #444 0 1px 1px;
+	  background:transparent;
+	  margin-left: 50%;
+	  width: 50%;
+	  
+	}
+
+	.jumboh1{
+		padding-top: 200px;
+	}
+
+
+
+
+
+
+}
+
+@media (min-width: 1024px) { 
+	.main_left{
+		width:30%;
+	}
+	.main_right{
+		width:70%;
+	}
+
+	.bg {
+	  background: url('../img/love10.jpg') no-repeat center center;
+
+	  position: fixed;
+	  width: 100%;
+	  height: 1000px; /*same height as jumbotron */
+	  top:0;
+	  left:0;
+	  z-index: -1;
+	}
+
+
+
+	.j1 { 
+	  height: 1000px;
+	  color: white;
+	  text-shadow: #444 0 1px 1px;
+	  background:transparent;
+	  width: 50%;
+	  margin-left: 50%;
+	}
+
+	.jumboh1{
+		padding-top: 200px;
+	}
+
+
+}
+
+
+
+@media (min-width: 1441px) { 
+	.main_left{
+		width:30%;
+	}
+	.main_right{
+		width:70%;
+	}
+
+	.bg {
+	  background: url('../img/love11.jpg') no-repeat center center;
+
+	  position: fixed;
+	  width: 100%;
+	  height: 1000px; /*same height as jumbotron */
+	  top:0;
+	  left:0;
+	  z-index: -1;
+	}
+
+
+
+	.j1 { 
+	  height: 1000px;
+	  color: white;
+	  text-shadow: #444 0 1px 1px;
+	  background:transparent;
+	  width: 25%;
+	  margin-left: 0%;
+	}
+
+	.jumboh1{
+		padding-top: 200px;
+	}
+
+
+
+
+}
+
+
+
+

@@ -1,0 +1,11 @@
+.regcon{
+	width: 100%;
+}
+
+
+@media (min-width: 769px) { 
+	.regcon{
+		width: 50%;
+	}
+
+}
