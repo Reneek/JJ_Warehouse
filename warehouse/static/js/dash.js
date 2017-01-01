@@ -44,7 +44,7 @@ $("#d_search").click(function() { // if search  button is clicked
 
     $.ajax({
     type:"GET",
-    url:'http://127.0.0.1:8000/load_warehouse/',
+    url:'http://'+ip_addr+'/load_warehouse/',
     data:{"d_start":d_start,"d_end":d_end,"d_category":d_category},
     datatype:"json",
     success:function(data){
@@ -72,7 +72,7 @@ $("#d_submit").click(function(){ // if submit button is clicked
 
     $.ajax({ // JQuery ajax function
     type: "GET", // Submitting Method
-    url: 'http://127.0.0.1:8000/create_order/',  //这里是你的api名字
+    url: 'http://'+ip_addr+'/create_order/',  //这里是你的api名字
     data: {"d_customer":d_customer,"d_start":d_start,"d_end":d_end,"d_category":d_category,"d_pk":d_pk}, // the data that will be sent to php processor
     dataType: "json", // type of returned data
     success: function(data) { // if ajax function results success 这里返回你后台检查通过或者不通过的信息  还要吗？？？？
