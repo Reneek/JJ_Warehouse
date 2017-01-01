@@ -4,7 +4,7 @@ $(function() {
 
     $.ajax({ // JQuery ajax function
       type: "GET", // Submitting Method
-      url: 'http://127.0.0.1:8000/logout/',  //这里是你的api名字
+      url: 'http://'+ip_addr+'/logout/',  //这里是你的api名字
       window.location=("./login.html")
       
      });

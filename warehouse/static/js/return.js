@@ -8,7 +8,7 @@ $(function() {
 
             $.ajax({ // JQuery ajax function
                 type: "GET", // Submitting Method
-                url: 'http://127.0.0.1:8000/get_r/',  //这里是你的api名字
+                url: 'http://'+ip_addr+'/get_r/',  //这里是你的api名字
                 data: {"number":num}, // the data that will be sent to php processor
                 dataType: "json", // type of returned data
                 success: function(data) { // if ajax function results success 这里返回你后台检查通过或者不通过的信息  还要吗？？？？

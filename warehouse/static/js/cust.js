@@ -3,7 +3,7 @@ $(function(){
 	 $(window).load(function(){
         $.ajax({ // JQuery ajax function
             type: "GET", // Submitting Method
-            url: 'http://127.0.0.1:8000/get_cust/',  //这里是你的api名字
+            url: 'http://'+ip_addr+'/get_cust/',  //这里是你的api名字
             dataType: "json", // type of returned data
             success: function(data) { 
             	if (data["code"]==0){

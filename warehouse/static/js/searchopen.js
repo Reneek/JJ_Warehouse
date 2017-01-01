@@ -12,7 +12,7 @@ $("#d_search").click(function() { // if search  button is clicked
 
     $.ajax({
     type:"GET",
-    url:'http://127.0.0.1:8000/load_warehouse/',
+    url:'http://'+ip_addr+'/load_warehouse/',
     data:{"d_start":d_start,"d_end":d_end,"d_category":d_category},
     datatype:"json",
     success:function(data){

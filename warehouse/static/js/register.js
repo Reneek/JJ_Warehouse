@@ -109,7 +109,7 @@ $(function() {
       
     $.ajax({ 
         type: "GET", 
-        url: 'http://127.0.0.1:8000/register/',  
+        url: 'http://'+ip_addr+'/register/',  
         data: {"fname":name,"lname":lname, "username":username,"psw":psw, "email":email},
         dataType: "json", 
         success: function(data) { 

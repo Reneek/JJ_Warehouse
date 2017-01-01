@@ -12,7 +12,7 @@ $(function() {
     
     $.ajax({
         type:"GET",
-        url:'http://127.0.0.1:8000/load_category/',
+        url:'http://'+ip_addr+'/load_category/',
         datatype:"Json",
         success:function (data){
             $("#d_category").append('<option disable selected value>'+'----select a category----'+'</option>');
