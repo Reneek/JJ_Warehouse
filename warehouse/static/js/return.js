@@ -63,7 +63,7 @@ $(function() {
         else {        
         $.ajax({ // JQuery ajax function
                 type: "GET", // Submitting Method
-                url: 'http://127.0.0.1:8000/release/',  //这里是你的api名字
+                url: 'http://'+ip_addr+'/release/',  //这里是你的api名字
                 data: {"key":num}, // the data that will be sent to php processor
                 dataType: "json",
                 success: function(data){
