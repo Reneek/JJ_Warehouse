@@ -28,12 +28,12 @@ def login_1(request):
     else: # Return an 'invalid login' error message.
         return JsonResponse({'code':0})
 
+#register new user
 def register(request):
     first_name = request.GET['fname']
     lname = request.GET['lname']
     uname = request.GET['username']
     password = request.GET['psw']
-
     email = request.GET['email']
 
     # create user in class user
@@ -46,8 +46,8 @@ def register(request):
     )
     u.save()
     return JsonResponse({'code':1})
-#search for available location
 
+#search for available location
 def available_location(request):
     l_start = request.GET['d_start']
     l_end = request.GET['d_end']
@@ -64,6 +64,7 @@ def available_location(request):
 
     w_list = []
     s_list = []
+
     for item in spaces:
         a_id = Aisle.objects.get(pk=item['sname'])#get the shelf object
         string = {'Wh': a_id.aname.name , 'Aisle':  str(a_id.aname.aisle) ,  'Shelf': a_id.shelf ,'Level': str(item['level']),'pk':str(item['pk']),'Status':item["status"]}
@@ -77,14 +78,7 @@ def available_location(request):
 
     return JsonResponse(data, safe = False)
 
-def test(request):
-    customer = Customer.objects.all()
-    c_list = []
-    for person in customer:
-        name = person.first_name + ' ' + person.last_name
-        c_list.append({'customer': name})
 
-    return JsonResponse(c_list, safe=False)
 
 
 
@@ -151,27 +145,7 @@ def create_order(request):
 
     return JsonResponse(data)
 
-def trythis(request):
-    l_start = date(2016,12,18)
-    end = date(2016,12,30)
-    trans = Transaction.objects.all().filter(tstart__gte=l_start).filter(tstart__lte=end)
-    data = []
-    customer = []
-    for item in trans:
-        name = item.tcustomer.first_name + ' ' + item.tcustomer.last_name
-        if name not in customer:
-            nstring = {"name": name}
-            customer.append(nstring)
-        wh = item.tshelf.sname.aname.name
-        location = str(item.tshelf.sname.aname.aisle) + ' ' + item.tshelf.sname.shelf + ' ' + str(item.tshelf.level)
-        st = str(item.tstart.year) + '/' + str(item.tstart.month) + '/' + str(item.tstart.day)
-        en = str(item.tend.year) + '/' + str(item.tend.month) + '/' + str(item.tend.day)
-        string = {'name': name, 'start': st, 'end': en, "wh": wh, 'location': location, "cost": item.tcost,
-                  "status": item.tstatus}
-        data.append(string)
-    final = [data, customer]
-    return JsonResponse(final, safe=False)
-
+#add new customer
 def add_cust(request):
     first = request.GET['first']
     last = request.GET['last']
@@ -191,19 +165,18 @@ def add_cust(request):
 
     return JsonResponse({'code':0})
 
+#retrieve current customer list
 def get_cust(request):
-
-
     c = Customer.objects.all()
     data = []
+
     for person in c:
         data.append({'fname':person.first_name,'lname':person.last_name,'company':person.company,"phone":person.phone,"email":person.email})
 
     return JsonResponse(data,safe = False)
 
 
-
-
+#return transaction detail of reciept to be printed
 def print_r(request):
     key = request.GET['number']
     try:
@@ -213,6 +186,7 @@ def print_r(request):
     except:
         return JsonResponse({"code":0})
 
+#release shelf space
 def release(request):
     default = date(1999,10,30)
     num = request.GET['key']
@@ -225,6 +199,7 @@ def release(request):
     #except:
         #return JsonResponse({"code":-1})
 
+#retrieve all transaction records from a sertain time period
 def get_trans(request):
     start = request.GET['d_start']
     end = request.GET['d_end']
@@ -258,7 +233,3 @@ def get_trans(request):
         return JsonResponse(final, safe = False)
     except:
         return JsonResponse({'code':0})
-
-
-def out(request):
-    logout(request)
